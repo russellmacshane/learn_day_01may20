@@ -14,6 +14,14 @@ class CovidAPI:
         resp, status_code = self.get_summary()
         return resp['Global'], status_code
 
+    def get_world_confirmed(self):
+        resp, _ = self.get_summary()
+        confirmed = resp['Global']['TotalConfirmed']
+        date = resp['Date']
+        confirmed = f'{date} - {confirmed}'
+        utils.save_confirmed(confirmed)
+        return confirmed
+
     def get_united_states(self):
         resp, status_code = self.get_summary()
 
