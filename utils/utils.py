@@ -9,3 +9,16 @@ class Utils:
             'TotalRecovered': json['TotalRecovered']
         }
 
+    def sensor(self):
+        """ Function for test purposes. """
+        print("Scheduler is alive!")
+
+    def save_confirmed(self, confirmed):
+        f = open("assets/stats", "a")
+        f.write(f'{str(confirmed)}\n')
+        f.close()
+
+    def all_confirmed(self):
+        f = open("assets/stats", "r")
+        return f.read()
+

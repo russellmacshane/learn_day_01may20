@@ -1,5 +1,6 @@
 from api import app
 from api import covid_api
+from api import utils
 
 
 @app.route('/')
@@ -20,3 +21,8 @@ def get_worldwide():
 @app.route('/usa')
 def get_united_states():
     return covid_api.get_united_states()
+
+
+@app.route('/confirmed')
+def all_confirmed():
+    return utils.all_confirmed()
